@@ -5,7 +5,7 @@ class Rmtrix < Formula
   version "0.1"
   sha256 "9a67d38821e6d1acb96435a684941bd2630b55eecd6eaa0379a4f2212aaf48e5"
 
-  depends_on "openjdk@17"
+  depends_on "openjdk@21"
 
   def install
     # Install the JAR file
@@ -14,7 +14,7 @@ class Rmtrix < Formula
     # Create wrapper script
     (bin/"rmtrix").write <<~EOS
       #!/bin/bash
-      exec "#{Formula["openjdk@17"].opt_bin}/java" -jar "#{libexec}/rmtrix-#{version}-all.jar" "$@"
+      exec "#{Formula["openjdk@21"].opt_bin}/java" -jar "#{libexec}/rmtrix-#{version}-all.jar" "$@"
     EOS
   end
 
